@@ -38,7 +38,7 @@ class MainView extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/info');
               },
-              child: Text('Siirry Info-sivulle'),
+              child: Text('testi2'),
             ),
           ],
         ),
