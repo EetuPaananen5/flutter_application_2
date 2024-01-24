@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/views/info_view.dart';
 
 class MainView extends StatelessWidget {
   @override
@@ -6,18 +7,17 @@ class MainView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pääsivu'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/input');
-            },
-            icon: Icon(Icons.text_fields),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/info');
-            },
-            icon: Icon(Icons.info),
+        actions: <Widget>[
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InfoView()),
+                );
+              },
+              child: Text('Go to Info View'),
+            ),
           ),
         ],
       ),
@@ -31,7 +31,7 @@ class MainView extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/input');
               },
-              child: Text('Siirry Input-sivulle'),
+              child: Text('Testi'),
             ),
             SizedBox(height: 16.0), // Lisää väliä painikkeiden välille
             ElevatedButton(

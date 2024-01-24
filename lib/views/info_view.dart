@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/views/main_view.dart';
 
 class InfoView extends StatelessWidget {
   @override
@@ -6,6 +7,19 @@ class InfoView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Info View'),
+        actions: <Widget>[
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainView()),
+                );
+              },
+              child: Text('Go to Main View'),
+            ),
+          ),
+        ],
       ),
       body: const SingleChildScrollView(
         child: Column(

@@ -1,125 +1,84 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/komponentit/task.dart';
 import 'package:flutter_application_2/views/task_edit_view.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_application_2/komponentit/task_data.dart';
+import 'package:flutter_application_2/views/info_view.dart';
 
-class  InputView extends StatefulWidget {
-  const InputView({super.key});
-
+class InputView extends StatelessWidget {
   @override
-  _InputViewState createState() => _InputViewState();
-}
-
-class _InputViewState extends State<InputView> {
-  List<Task> tasks = [
-    Task(
-      name: 'Tehtävä 1',
-      details: 'Ensimmäinen tehtävä',
-      deadline: DateTime.now().add(const Duration(days: 1)),
-      isDone: false,
-    ),
-    Task(
-      name: 'Tehtävä 2',
-      details: 'Toinen tehtävä',
-      deadline: DateTime.now().add(const Duration(days: 3)),
-      isDone: true,
-    ),
-    Task(
-      name: 'Tehtävä 3',
-      details: 'Kolmas tehtävä',
-      deadline: DateTime.now().add(const Duration(days: 5)),
-      isDone: false,
-    ),
-  ];
-
-  void _addTask(Task newTask) {
-    setState(() {
-      tasks.add(newTask);
-    });
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Tehtävät'),
+        actions: <Widget>[
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InfoView()),
+                );
+              },
+              child: Text('Go to Info View'),
+            ),
+          ),
+        ],
+      ),
+      body: Consumer<TaskData>(
+        builder: (context, taskData, child) {
+          return ListView.builder(
+            itemCount: taskData.tasks.length,
+            itemBuilder: (context, index) {
+              return Card(
+                margin: EdgeInsets.all(8.0),
+                child: ListTile(
+                  title: Text(taskData.tasks[index].name),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(taskData.tasks[index].details),
+                      Text(
+                          'Deadline: ${taskData.tasks[index].formattedDeadline}'),
+                    ],
+                  ),
+                  trailing: IconButton(
+                    icon: taskData.tasks[index].isDone
+                        ? Icon(Icons.check_box)
+                        : Icon(Icons.check_box_outline_blank),
+                    iconSize: 30.0,
+                    onPressed: () {
+                      Provider.of<TaskData>(context, listen: false)
+                          .toggleDone(index);
+                    },
+                  ),
+                  onTap: () {
+                    _openEditView(context, taskData.tasks[index]);
+                  },
+                  onLongPress: () {
+                    Provider.of<TaskData>(context, listen: false)
+                        .deleteTask(index);
+                  },
+                ),
+              );
+            },
+          );
+        },
+      ),
+    );
   }
 
-  void _editTask(int index, Task editedTask) {
-    setState(() {
-      tasks[index] = editedTask;
-    });
-  }
-
-  void _deleteTask(int index) {
-    setState(() {
-      tasks.removeAt(index);
-    });
-  }
-
-  void _openEditView(Task task) async {
+  void _openEditView(BuildContext context, Task task) async {
     final editedTask = await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => TaskEditView(task)),
     );
 
     if (editedTask != null) {
-      if (editedTask.isDeleted) {
-        _deleteTask(tasks.indexOf(task));
-      } else {
-        _editTask(tasks.indexOf(task), editedTask);
-      }
+      Provider.of<TaskData>(context, listen: false).editTask(
+        Provider.of<TaskData>(context, listen: false).tasks.indexOf(task),
+        editedTask,
+      );
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Task Manager'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            iconSize: 50.0, // Aseta tässä haluamasi koko ikonille
-            onPressed: () async {
-              final newTask = await Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TaskEditView(null)),
-              );
-
-              if (newTask != null) {
-                _addTask(newTask);
-              }
-            },
-          ),
-        ],
-      ),
-      body: ListView.builder(
-        itemCount: tasks.length,
-        itemBuilder: (context, index) {
-          return Card(
-            margin: const EdgeInsets.all(8.0),
-            child: ListTile(
-              title: Text(tasks[index].name),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(tasks[index].details),
-                  Text('Deadline: ${tasks[index].formattedDeadline}'),
-                ],
-              ),
-              trailing: IconButton(
-                icon: tasks[index].isDone
-                    ? const Icon(Icons.check_box)
-                    : const Icon(Icons.check_box_outline_blank),
-                onPressed: () {
-                  setState(() {
-                    tasks[index].toggleDone();
-                  });
-                },
-              ),
-              onTap: () {
-                _openEditView(tasks[index]);
-              },
-              onLongPress: () {
-                _deleteTask(index);
-              },
-            ),
-          );
-        },
-      ),
-    );
   }
 }
