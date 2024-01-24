@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/komponentit/task.dart';
+import 'package:flutter_application_2/views/main_view.dart';
 import 'package:flutter_application_2/views/task_edit_view.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_application_2/komponentit/task_data.dart';
-import 'package:flutter_application_2/views/info_view.dart';
+
 
 class InputView extends StatelessWidget {
   @override
@@ -17,10 +18,10 @@ class InputView extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => InfoView()),
+                  MaterialPageRoute(builder: (context) => MainView()),
                 );
               },
-              child: Text('Go to Info View'),
+              child: Text('Go to Main View'),
             ),
           ),
         ],

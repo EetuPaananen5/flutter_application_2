@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/views/main_view.dart';
+import 'package:flutter_application_2/views/input_view.dart';
 
 class InfoView extends StatelessWidget {
   @override
@@ -13,10 +13,10 @@ class InfoView extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MainView()),
+                  MaterialPageRoute(builder: (context) => InputView()),
                 );
               },
-              child: Text('Go to Main View'),
+              child: Text('Go to Input View'),
             ),
           ),
         ],
