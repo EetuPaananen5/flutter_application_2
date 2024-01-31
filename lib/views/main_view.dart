@@ -2,21 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/views/info_view.dart';
 
 class MainView extends StatelessWidget {
+  const MainView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pääsivu'),
+        title: const Text('Pääsivu'),
         actions: <Widget>[
           Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => InfoView()),
+                  MaterialPageRoute(builder: (context) => const InfoView()),
                 );
               },
-              child: Text('Go to Info View'),
+              child: const Text('Go to Info View'),
             ),
           ),
         ],
@@ -31,14 +33,14 @@ class MainView extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/input');
               },
-              child: Text('Testi'),
+              child: const Text('Testi'),
             ),
-            SizedBox(height: 16.0), // Lisää väliä painikkeiden välille
+            const SizedBox(height: 16.0), // Lisää väliä painikkeiden välille
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/info');
               },
-              child: Text('testi2'),
+              child: const Text('testi2'),
             ),
           ],
         ),

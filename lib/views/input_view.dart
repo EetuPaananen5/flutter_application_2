@@ -5,23 +5,24 @@ import 'package:flutter_application_2/views/task_edit_view.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_application_2/komponentit/task_data.dart';
 
-
 class InputView extends StatelessWidget {
+  const InputView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tehtävät'),
+        title: const Text('Tehtävät'),
         actions: <Widget>[
           Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MainView()),
+                  MaterialPageRoute(builder: (context) => const MainView()),
                 );
               },
-              child: Text('Go to Main View'),
+              child: const Text('Go to Main View'),
             ),
           ),
         ],
@@ -32,7 +33,7 @@ class InputView extends StatelessWidget {
             itemCount: taskData.tasks.length,
             itemBuilder: (context, index) {
               return Card(
-                margin: EdgeInsets.all(8.0),
+                margin: const EdgeInsets.all(8.0),
                 child: ListTile(
                   title: Text(taskData.tasks[index].name),
                   subtitle: Column(
@@ -45,8 +46,8 @@ class InputView extends StatelessWidget {
                   ),
                   trailing: IconButton(
                     icon: taskData.tasks[index].isDone
-                        ? Icon(Icons.check_box)
-                        : Icon(Icons.check_box_outline_blank),
+                        ? const Icon(Icons.check_box)
+                        : const Icon(Icons.check_box_outline_blank),
                     iconSize: 30.0,
                     onPressed: () {
                       Provider.of<TaskData>(context, listen: false)
@@ -70,14 +71,15 @@ class InputView extends StatelessWidget {
   }
 
   void _openEditView(BuildContext context, Task task) async {
+   final taskData = Provider.of<TaskData>(context, listen: false);
     final editedTask = await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => TaskEditView(task)),
     );
 
-    if (editedTask != null) {
-      Provider.of<TaskData>(context, listen: false).editTask(
-        Provider.of<TaskData>(context, listen: false).tasks.indexOf(task),
+if (editedTask != null) {
+      taskData.editTask(
+        taskData.tasks.indexOf(task),
         editedTask,
       );
     }

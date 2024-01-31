@@ -2,21 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/views/input_view.dart';
 
 class InfoView extends StatelessWidget {
+  const InfoView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Info View'),
+        title: const Text('Info View'),
         actions: <Widget>[
           Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => InputView()),
+                  MaterialPageRoute(builder: (context) => const InputView()),
                 );
               },
-              child: Text('Go to Input View'),
+              child: const Text('Go to Input View'),
             ),
           ),
         ],

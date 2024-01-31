@@ -4,13 +4,13 @@ import 'package:flutter_application_2/komponentit/task.dart';
 class TaskEditView extends StatefulWidget {
   final Task? task;
 
-  TaskEditView(this.task);
+  const TaskEditView(this.task, {super.key});
 
   @override
-  _TaskEditViewState createState() => _TaskEditViewState();
+  TaskEditViewState createState() => TaskEditViewState();
 }
 
-class _TaskEditViewState extends State<TaskEditView> {
+class TaskEditViewState extends State<TaskEditView> {
   late TextEditingController _nameController;
   late TextEditingController _detailsController;
   late DateTime _selectedDate;
@@ -35,7 +35,7 @@ class _TaskEditViewState extends State<TaskEditView> {
         actions: [
           if (widget.task != null)
             IconButton(
-              icon: Icon(Icons.delete),
+              icon: const Icon(Icons.delete),
               iconSize: 50.0, // Aseta tässä haluamasi koko ikonille
               onPressed: () {
                 final deletedTask = Task(
@@ -56,17 +56,17 @@ class _TaskEditViewState extends State<TaskEditView> {
           children: [
             TextField(
               controller: _nameController,
-              decoration: InputDecoration(labelText: 'Nimi'),
+              decoration: const InputDecoration(labelText: 'Nimi'),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextField(
               controller: _detailsController,
-              decoration: InputDecoration(labelText: 'Tarkenne'),
+              decoration: const InputDecoration(labelText: 'Tarkenne'),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Row(
               children: [
-                Text('Deadline: '),
+                const Text('Deadline: '),
                 TextButton(
                   onPressed: () async {
                     final pickedDate = await showDatePicker(
@@ -84,16 +84,16 @@ class _TaskEditViewState extends State<TaskEditView> {
                   },
                   child: Text(
                     "${_selectedDate.day}.${_selectedDate.month}.${_selectedDate.year}",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             CheckboxListTile(
-              title: Text('Tehty'),
+              title: const Text('Tehty'),
               value: _isDone,
               onChanged: (value) {
                 setState(() {
@@ -101,7 +101,7 @@ class _TaskEditViewState extends State<TaskEditView> {
                 });
               },
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 final editedTask = Task(
@@ -114,7 +114,7 @@ class _TaskEditViewState extends State<TaskEditView> {
 
                 Navigator.pop(context, editedTask);
               },
-              child: Text('Tallenna'),
+              child: const Text('Tallenna'),
             ),
           ],
         ),

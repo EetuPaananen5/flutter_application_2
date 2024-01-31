@@ -6,17 +6,17 @@ class TaskData extends ChangeNotifier {
     Task(
         name: 'Tehtävä 1',
         details: 'Ensimmäinen tehtävä',
-        deadline: DateTime.now().add(Duration(days: 1)),
+        deadline: DateTime.now().add(const Duration(days: 1)),
         isDone: false),
     Task(
         name: 'Tehtävä 2',
         details: 'Toinen tehtävä',
-        deadline: DateTime.now().add(Duration(days: 3)),
+        deadline: DateTime.now().add(const Duration(days: 3)),
         isDone: true),
     Task(
         name: 'Tehtävä 3',
         details: 'Kolmas tehtävä',
-        deadline: DateTime.now().add(Duration(days: 5)),
+        deadline: DateTime.now().add(const Duration(days: 5)),
         isDone: false),
   ];
 
