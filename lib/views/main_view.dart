@@ -31,11 +31,12 @@ class MainView extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/input');
+                Navigator.pushNamed(context, '/task_edit_view');
               },
-              child: const Text('Testi'),
+              child: const Text('Go to Task Edit View'),
             ),
-            const SizedBox(height: 16.0), // Lisää väliä painikkeiden välille
+            const SizedBox(height: 16.0), 
+            // Lisää väliä painikkeiden välille
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/info');

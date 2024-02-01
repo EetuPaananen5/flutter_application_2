@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/komponentit/task_data.dart';
+import 'package:flutter_application_2/models/task_data.dart';
 import 'package:flutter_application_2/views/input_view.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';

@@ -55,6 +55,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '559369217627',
     projectId: 'todoexample-450ee',
     authDomain: 'todoexample-450ee.firebaseapp.com',
+    databaseURL: 'https://todoexample-450ee-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'todoexample-450ee.appspot.com',
   );
 
@@ -63,6 +64,7 @@ class DefaultFirebaseOptions {
     appId: '1:559369217627:android:fb6a4f1051a12d2cb5017e',
     messagingSenderId: '559369217627',
     projectId: 'todoexample-450ee',
+    databaseURL: 'https://todoexample-450ee-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'todoexample-450ee.appspot.com',
   );
 }

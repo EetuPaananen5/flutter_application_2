@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/komponentit/task.dart';
+import 'package:flutter_application_2/models/task.dart';
 import 'package:flutter_application_2/views/main_view.dart';
 import 'package:flutter_application_2/views/task_edit_view.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_application_2/komponentit/task_data.dart';
+import 'package:flutter_application_2/models/task_data.dart';
 
 class InputView extends StatelessWidget {
   const InputView({super.key});
@@ -25,7 +25,20 @@ class InputView extends StatelessWidget {
               child: const Text('Go to Main View'),
             ),
           ),
+
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  TaskEditView(Task(name: '', details: '', deadline: DateTime.now(), isDone: false, isDeleted: false)),
+                ));
+              },
+              child: const Text('Go to Task Edit View'),
+            ),
+          ),
         ],
+     
       ),
       body: Consumer<TaskData>(
         builder: (context, taskData, child) {

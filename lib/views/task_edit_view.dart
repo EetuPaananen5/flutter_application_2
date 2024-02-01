@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/komponentit/task.dart';
+import 'package:flutter_application_2/models/task.dart';
+import 'package:flutter_application_2/models/task_data.dart';
+import 'package:provider/provider.dart';
 
 class TaskEditView extends StatefulWidget {
   final Task? task;
@@ -102,7 +104,7 @@ class TaskEditViewState extends State<TaskEditView> {
               },
             ),
             const SizedBox(height: 16.0),
-            ElevatedButton(
+ElevatedButton(
               onPressed: () {
                 final editedTask = Task(
                   name: _nameController.text,
@@ -111,6 +113,10 @@ class TaskEditViewState extends State<TaskEditView> {
                   isDone: _isDone,
                   isDeleted: false,
                 );
+
+                // Use the addTask method to save the task
+                Provider.of<TaskData>(context, listen: false)
+                    .addTask(editedTask);
 
                 Navigator.pop(context, editedTask);
               },
