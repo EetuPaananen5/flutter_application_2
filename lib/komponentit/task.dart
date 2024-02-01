@@ -1,5 +1,3 @@
-
-
 class Task {
   String name;
   String details;
