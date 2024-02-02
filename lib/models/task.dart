@@ -14,7 +14,8 @@ class Task {
       required this.details,
       required this.deadline,
       required this.isDone,
-      this.isDeleted = false});
+      this.isDeleted = false,
+      this.firebaseid});
 
   String get formattedDeadline {
     return "${deadline.day}.${deadline.month}.${deadline.year}";

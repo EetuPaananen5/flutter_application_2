@@ -26,14 +26,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      final providers = [EmailAuthProvider()];
+    final providers = [EmailAuthProvider()];
     return ChangeNotifierProvider(
       create: (context) => TaskData(),
-      child:  MaterialApp(
+      child: MaterialApp(
         title: 'Task Manager',
 
-initialRoute:
-            FirebaseAuth.instance.currentUser == null ? '/sign-in' : '/main-view',
+        initialRoute:
+            FirebaseAuth.instance.currentUser == null ? '/sign-in' : '/profile',
         routes: {
           '/sign-in': (context) {
             return SignInScreen(

@@ -1,26 +1,39 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter_application_2/models/task.dart';
 
-class FirebaseHelper{
-  final DatabaseReference _taskRef = FirebaseDatabase.instance.ref().child('tasks');
+class FirebaseHelper {
+  final DatabaseReference _taskRef =
+      FirebaseDatabase.instance.ref().child('tasks');
 
-  void saveTask(Task task){
+  void saveTask(Task task) {
     _taskRef.push().set(task.toJson()); //Tallennetaan Task Jsonina
   }
 
-  Future<List<Task>> getData() async{
-   List<Task> tasks = [];
+  void deleteTask(Task task) {
+    if (task.firebaseid != null) {
+      _taskRef.child(task.firebaseid.toString()).remove();
+    }
+  }
 
-   DatabaseEvent event = await _taskRef.once();
 
-   var snapshot = event.snapshot;
+  void editTask(Task task) {
+    if (task.firebaseid != null) {
+      _taskRef.child(task.firebaseid.toString()).update(task.toJson());
+    }
+  }
 
-   for (var child in snapshot.children){
-    Task task = Task.fromJson(child.value as Map<String, dynamic>);
-    task.firebaseid = child.key;
-    tasks.add(task);
+  Future<List<Task>> getData() async {
+    List<Task> tasks = [];
 
-   }
-   return tasks;
+    DatabaseEvent event = await _taskRef.once();
+
+    var snapshot = event.snapshot;
+
+    for (var child in snapshot.children) {
+      Task task = Task.fromJson(child.value as Map<String, dynamic>);
+      task.firebaseid = child.key;
+      tasks.add(task);
+    }
+    return tasks;
   }
 }

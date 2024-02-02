@@ -38,15 +38,11 @@ class TaskEditViewState extends State<TaskEditView> {
           if (widget.task != null)
             IconButton(
               icon: const Icon(Icons.delete),
-              iconSize: 50.0, // Aseta tässä haluamasi koko ikonille
+              iconSize: 50.0,
               onPressed: () {
-                final deletedTask = Task(
-                    name: '',
-                    details: '',
-                    deadline: DateTime.now(),
-                    isDone: false,
-                    isDeleted: true);
-                Navigator.pop(context, deletedTask);
+                Provider.of<TaskData>(context, listen: false)
+                    .deleteTask(widget.task!);
+                Navigator.pop(context);
               },
             ),
         ],
@@ -104,7 +100,7 @@ class TaskEditViewState extends State<TaskEditView> {
               },
             ),
             const SizedBox(height: 16.0),
-ElevatedButton(
+            ElevatedButton(
               onPressed: () {
                 final editedTask = Task(
                   name: _nameController.text,

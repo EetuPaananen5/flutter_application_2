@@ -8,18 +8,16 @@ class MainView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pääsivu'),
+        title: Text('Workout Planner'),
         actions: <Widget>[
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const InfoView()),
-                );
-              },
-              child: const Text('Go to Info View'),
-            ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const InfoView()),
+              );
+            },
+            icon: Icon(Icons.info_outline),
           ),
         ],
       ),
@@ -33,15 +31,27 @@ class MainView extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/task_edit_view');
               },
-              child: const Text('Go to Task Edit View'),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.0),
+                child: Text(
+                  'Create Workout',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
             ),
-            const SizedBox(height: 16.0), 
-            // Lisää väliä painikkeiden välille
+            const SizedBox(height: 16.0),
+            // Add space between buttons
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/info');
               },
-              child: const Text('testi2'),
+              child: const Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: Text(
+                  'Test Button',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
             ),
           ],
         ),

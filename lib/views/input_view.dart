@@ -12,7 +12,7 @@ class InputView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tehtävät'),
+        title: const Text('Task List'),
         actions: <Widget>[
           Center(
             child: ElevatedButton(
@@ -22,7 +22,7 @@ class InputView extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const MainView()),
                 );
               },
-              child: const Text('Go to Main View'),
+              child: const Text('Main View'),
             ),
           ),
 
@@ -34,7 +34,7 @@ class InputView extends StatelessWidget {
                   MaterialPageRoute(builder: (context) =>  TaskEditView(Task(name: '', details: '', deadline: DateTime.now(), isDone: false, isDeleted: false)),
                 ));
               },
-              child: const Text('Go to Task Edit View'),
+              child: const Text('Add Task'),
             ),
           ),
         ],
@@ -72,7 +72,7 @@ class InputView extends StatelessWidget {
                   },
                   onLongPress: () {
                     Provider.of<TaskData>(context, listen: false)
-                        .deleteTask(index);
+                        .deleteTask(index as Task);
                   },
                 ),
               );
