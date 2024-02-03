@@ -33,6 +33,11 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => TaskData(),
       child: MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          scaffoldBackgroundColor: Color.fromARGB(255, 222, 236, 248), // Change this to your desired color
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
         title: 'Task Manager',
 
         initialRoute:

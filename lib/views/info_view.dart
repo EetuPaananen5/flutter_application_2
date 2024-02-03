@@ -18,7 +18,7 @@ class InfoView extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const InputView()),
                 );
               },
-              child: const Text('Task list'),
+              child: const Text('Workout List'),
             ),
           ),
         ],
