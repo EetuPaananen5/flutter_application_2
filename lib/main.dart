@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/models/task_data.dart';
+import 'package:flutter_application_2/views/info_view.dart';
 import 'package:flutter_application_2/views/input_view.dart';
+import 'package:flutter_application_2/views/main_view.dart';
+//import 'package:flutter_application_2/views/task_edit_view.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -56,8 +59,11 @@ class MyApp extends StatelessWidget {
             );
           },
           '/main-view': (context) {
-            return const InputView();
+            return const MainView();
           },
+          // '/task_edit_view': (context) => const TaskEditView(), // Add this line
+          '/input': (context) => InputView(),
+          '/info': (context) => InfoView(), // A
         },
 
         //home: InputView(),

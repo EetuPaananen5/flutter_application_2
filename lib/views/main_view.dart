@@ -29,7 +29,7 @@ class MainView extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/task_edit_view');
+                Navigator.pushNamed(context, '/input');
               },
               child: const Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -48,7 +48,7 @@ class MainView extends StatelessWidget {
               child: const Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: Text(
-                  'Test Button',
+                  'Your Coach',
                   style: TextStyle(fontSize: 18),
                 ),
               ),

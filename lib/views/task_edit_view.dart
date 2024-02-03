@@ -33,7 +33,7 @@ class TaskEditViewState extends State<TaskEditView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.task == null ? 'Lisää tehtävä' : 'Muokkaa tehtävää'),
+        title: Text(widget.task == null ? 'Add Workout' : 'Edit Workout'),
         actions: [
           if (widget.task != null)
             IconButton(
@@ -54,17 +54,17 @@ class TaskEditViewState extends State<TaskEditView> {
           children: [
             TextField(
               controller: _nameController,
-              decoration: const InputDecoration(labelText: 'Nimi'),
+              decoration: const InputDecoration(labelText: 'What workout?'),
             ),
             const SizedBox(height: 16.0),
             TextField(
               controller: _detailsController,
-              decoration: const InputDecoration(labelText: 'Tarkenne'),
+              decoration: const InputDecoration(labelText: 'Moves and reps'),
             ),
             const SizedBox(height: 16.0),
             Row(
               children: [
-                const Text('Deadline: '),
+                const Text('When: '),
                 TextButton(
                   onPressed: () async {
                     final pickedDate = await showDatePicker(
@@ -91,7 +91,7 @@ class TaskEditViewState extends State<TaskEditView> {
             ),
             const SizedBox(height: 16.0),
             CheckboxListTile(
-              title: const Text('Tehty'),
+              title: const Text('Check if done'),
               value: _isDone,
               onChanged: (value) {
                 setState(() {
@@ -116,7 +116,7 @@ class TaskEditViewState extends State<TaskEditView> {
 
                 Navigator.pop(context, editedTask);
               },
-              child: const Text('Tallenna'),
+              child: const Text('Save Workout'),
             ),
           ],
         ),

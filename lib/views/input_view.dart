@@ -12,7 +12,7 @@ class InputView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Task List'),
+        title: const Text('Workout List'),
         actions: <Widget>[
           Center(
             child: ElevatedButton(
@@ -25,20 +25,24 @@ class InputView extends StatelessWidget {
               child: const Text('Main View'),
             ),
           ),
-
           Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  TaskEditView(Task(name: '', details: '', deadline: DateTime.now(), isDone: false, isDeleted: false)),
-                ));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TaskEditView(Task(
+                          name: '',
+                          details: '',
+                          deadline: DateTime.now(),
+                          isDone: false,
+                          isDeleted: false)),
+                    ));
               },
-              child: const Text('Add Task'),
+              child: const Text('+Add'),
             ),
           ),
         ],
-     
       ),
       body: Consumer<TaskData>(
         builder: (context, taskData, child) {
@@ -84,13 +88,13 @@ class InputView extends StatelessWidget {
   }
 
   void _openEditView(BuildContext context, Task task) async {
-   final taskData = Provider.of<TaskData>(context, listen: false);
+    final taskData = Provider.of<TaskData>(context, listen: false);
     final editedTask = await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => TaskEditView(task)),
     );
 
-if (editedTask != null) {
+    if (editedTask != null) {
       taskData.editTask(
         taskData.tasks.indexOf(task),
         editedTask,

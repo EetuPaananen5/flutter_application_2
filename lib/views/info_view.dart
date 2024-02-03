@@ -8,7 +8,7 @@ class InfoView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Info View'),
+        title: const Text('Coach Info'),
         actions: <Widget>[
           Center(
             child: ElevatedButton(
@@ -30,19 +30,16 @@ class InfoView extends StatelessWidget {
               image: 'images/lake.jpg',
             ),
             TitleSection(
-              name: 'Oeschinen Lake Campground',
-              location: 'Kandersteg, Switzerland',
+              name: 'Jake Strandford',
+              location: 'Cerified Spartan Personal Trainer',
             ),
             ButtonSection(),
             TextSection(
               description:
-                  'Lake Oeschinen lies at the foot of the Blüemlisalp in the '
-                  'Bernese Alps. Situated 1,578 meters above sea level, it '
-                  'is one of the larger Alpine Lakes. A gondola ride from '
-                  'Kandersteg, followed by a half-hour walk through pastures '
-                  'and pine forest, leads you to the lake, which warms to 20 '
-                  'degrees Celsius in the summer. Activities enjoyed here '
-                  'include rowing, and riding the summer toboggan run.',
+                  'Welcome to Personal Trainer Joes Page! Hey fitness enthusiasts! Im Joe, your dedicated personal trainer committed to helping you achieve your fitness goals.'
+                  ' Heres what you can expect: My Training Approach: I believe in balanced, progressive workouts tailored to your needs. From strength training to HIIT,'
+                  'well push limits and unlock your potential. Why Workout? Exercise isnt just about looks; its about feeling great. Regular activity boosts mood, reduces stress, and sharpens focus.,'
+                  'Lets make every workout count! Ready to Start? Join me on a journey to fitness excellence! Lets crush goals, break limits, and celebrate victories together. Your ally in fitness, Joe',
             ),
           ],
         ),
