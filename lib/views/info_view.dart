@@ -36,10 +36,12 @@ class InfoView extends StatelessWidget {
             ButtonSection(),
             TextSection(
               description:
-                  'Welcome to Personal Trainer Joes Page! Hey fitness enthusiasts! Im Joe, your dedicated personal trainer committed to helping you achieve your fitness goals.'
-                  ' Heres what you can expect: My Training Approach: I believe in balanced, progressive workouts tailored to your needs. From strength training to HIIT,'
-                  'well push limits and unlock your potential. Why Workout? Exercise isnt just about looks; its about feeling great. Regular activity boosts mood, reduces stress, and sharpens focus.,'
-                  'Lets make every workout count! Ready to Start? Join me on a journey to fitness excellence! Lets crush goals, break limits, and celebrate victories together. Your ally in fitness, Joe',
+                  'Im Jake, your dedicated personal trainer committed to helping you achieve your fitness goals.'
+                  ' Heres what you can expect. I believe in balanced, progressive workouts tailored to your needs. From strength training to HIIT,'
+                  'Why Workout? Exercise isnt just about looks; its about feeling great. Regular activity boosts mood, reduces stress, and sharpens focus.,'
+                  'Lets make every workout count!Join me on a journey to fitness excellence! Lets crush goals, break limits, and celebrate victories together. Your supporer in fitness, Jake.'
+                  ' PS '
+                  'You can track your progress on the workout list page. Add the workouts you have completed and see your progress over time.',
             ),
           ],
         ),
@@ -128,8 +130,8 @@ class ButtonSection extends StatelessWidget {
           ),
           ButtonWithText(
             color: color,
-            icon: Icons.near_me,
-            label: 'ROUTE',
+            icon: Icons.message,
+            label: 'CHAT',
           ),
           ButtonWithText(
             color: color,
