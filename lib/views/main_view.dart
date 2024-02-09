@@ -100,6 +100,19 @@ class _MainViewState extends State<MainView>
                 ),
               ),
             ),
+            const SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/programs');
+              },
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.0),
+                child: Text(
+                  'Ready Training Programs',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+            ),
           ],
         ),
       ),

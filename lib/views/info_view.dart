@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/views/input_view.dart';
+//import 'package:flutter_application_2/views/input_view.dart';
+import 'package:flutter_application_2/views/training_programs_view.dart';
 
 class InfoView extends StatelessWidget {
   const InfoView({super.key});
@@ -15,10 +16,11 @@ class InfoView extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const InputView()),
+                  MaterialPageRoute(
+                      builder: (context) => const TrainingProgramView()),
                 );
               },
-              child: const Text('Workout List'),
+              child: const Text(' Training Programs'),
             ),
           ),
         ],

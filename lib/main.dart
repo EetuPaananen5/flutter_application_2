@@ -3,6 +3,7 @@ import 'package:flutter_application_2/models/task_data.dart';
 import 'package:flutter_application_2/views/info_view.dart';
 import 'package:flutter_application_2/views/input_view.dart';
 import 'package:flutter_application_2/views/main_view.dart';
+import 'package:flutter_application_2/views/training_programs_view.dart';
 //import 'package:flutter_application_2/views/task_edit_view.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          scaffoldBackgroundColor: Color.fromARGB(255, 222, 236, 248), // Change this to your desired color
+          scaffoldBackgroundColor: const Color.fromARGB(255, 222, 236, 248), // Change this to your desired color
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         title: 'Task Manager',
@@ -67,8 +68,9 @@ class MyApp extends StatelessWidget {
             return const MainView();
           },
           // '/task_edit_view': (context) => const TaskEditView(), // Add this line
-          '/input': (context) => InputView(),
-          '/info': (context) => InfoView(), // A
+          '/input': (context) => const InputView(),
+          '/info': (context) => const InfoView(),
+          '/programs':(context) => const TrainingProgramView() // A
         },
 
         //home: InputView(),
