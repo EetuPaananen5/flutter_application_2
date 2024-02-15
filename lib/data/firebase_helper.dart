@@ -1,9 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter_application_2/models/task.dart';
 
 class FirebaseHelper {
-  final DatabaseReference _taskRef =
-      FirebaseDatabase.instance.ref().child('tasks');
+  final DatabaseReference _taskRef = FirebaseDatabase.instance
+      .ref()
+      .child('tasks')
+      .child(FirebaseAuth.instance.currentUser!
+          .uid); //Tietokantareferenssi (tasks) ja käyttäjän uid (FirebaseAuth.instance.currentUser!.uid
 
   void saveTask(Task task) {
     _taskRef.push().set(task.toJson()); //Tallennetaan Task Jsonina
@@ -14,7 +18,6 @@ class FirebaseHelper {
       _taskRef.child(task.firebaseid.toString()).remove();
     }
   }
-
 
   void editTask(Task task) {
     if (task.firebaseid != null) {

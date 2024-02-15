@@ -54,8 +54,8 @@ class TrainingProgramView extends StatelessWidget {
                         " 5. Do plank: 3 sets of 1 minute hold",
                   ),
                   TrainingProgramButton(
-                    title: 'KETTLEBALL Workout',
-                    image: 'images/kb.jpg',
+                    title: 'RUNNING Workout',
+                    image: 'images/run.jpg',
                     programDetails:
                         "1. Do push-ups: 3 sets of 30 reps               ,"
                         "2.Do crunches: 3 sets of 30 reps.                  ,"
@@ -123,8 +123,8 @@ class TrainingProgramView extends StatelessWidget {
                                       5. Do plank: 3 sets of 1 minute hold""",
                   ),
                   TrainingProgramButton(
-                    title: 'RUNNING Workout',
-                    image: 'images/run.jpg',
+                    title: 'KETTLEBAR Workout',
+                    image: 'images/KB.jpg',
                     programDetails: """1. Do push-ups: 3 sets of 30 reps"
                                       2.Do crunches: 3 sets of 30 reps
                                       3. Do squats: 3 sets of 20 reps
