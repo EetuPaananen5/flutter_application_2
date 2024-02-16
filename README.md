@@ -1,7 +1,9 @@
 # flutter_application_2
 # Workout_App_For_Bodybuilders
 
-Dokumentaatio sovelluksesta flutter_application_2
+Valmiit tunnukset:<br />
+email: testi@testi.com <br />
+salasana: testitesti <br />
 Mitä sovellus tekee: <br />
 
 Loimme sovelluksen, joka on tarkoitettu kuntosali harjoittelijoille. Sovellusta voisi käyttää Personal Trainer joka, myy sovelluksen omille asiakkailleen. Sovelluksesta löytyy valmentajan tiedot, valmiita treeniohjelmia, ja mahdollisuus kirjata omia harjoituksia ylös. 
