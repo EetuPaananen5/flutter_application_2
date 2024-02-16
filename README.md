@@ -41,13 +41,13 @@ Mitä puhelimen ominaisuuksia se käyttää
 Toimii puhelimen käyttöliittymässä. Ei muita ominaisuuksia esim kamera
 
 Mitä näkymiä siinä on:
-•	Login
-•	Register
-•	Main View
-•	Coach View
-•	Ready trainings View
-•	Task view
-•	Add Task View
+•	Login  <br />
+•	Register  <br />
+•	Main View <br />
+•	Coach View <br />
+•	Ready trainings View <br />
+•	Task view <br />
+•	Add Task View <br />
 
 Perustuuko se johonkin esimerkkikoodiin:
 Ei perustu lähdekoodiin. Sovelluksessa käytetty toki kurssin aikana opittuja tekniikoita ja mallia on otettu siitä kurssin tehtävästä.
