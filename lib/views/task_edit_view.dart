@@ -40,7 +40,7 @@ class TaskEditViewState extends State<TaskEditView> {
               icon: const Icon(Icons.delete),
               iconSize: 50.0,
               onPressed: () {
-                Provider.of<TaskData>(context, listen: false)
+                Provider.of<TaskData>(context, listen: false) //poistaa tehtävän
                     .deleteTask(widget.task!);
                 Navigator.pop(context);
               },
@@ -113,10 +113,10 @@ class TaskEditViewState extends State<TaskEditView> {
                 // Use the addTask method to save the task
                 Provider.of<TaskData>(context, listen: false)
                     .addTask(editedTask);
-
                 Navigator.pop(context, editedTask);
               },
               child: const Text('Save Workout'),
+
             ),
           ],
         ),

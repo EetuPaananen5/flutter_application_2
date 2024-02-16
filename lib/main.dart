@@ -32,11 +32,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final providers = [EmailAuthProvider()];
     return ChangeNotifierProvider(
-      create: (context) => TaskData(),
+      create: (context) {
+        var model = TaskData();
+        model.init();
+        return model;
+      },
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          scaffoldBackgroundColor: const Color.fromARGB(255, 222, 236, 248), // Change this to your desired color
+          scaffoldBackgroundColor: const Color.fromARGB(
+              255, 222, 236, 248), // Change this to your desired color
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         title: 'Task Manager',
@@ -70,7 +75,7 @@ class MyApp extends StatelessWidget {
           // '/task_edit_view': (context) => const TaskEditView(), // Add this line
           '/input': (context) => const InputView(),
           '/info': (context) => const InfoView(),
-          '/programs':(context) => const TrainingProgramView() // A
+          '/programs': (context) => const TrainingProgramView() // A
         },
 
         //home: InputView(),

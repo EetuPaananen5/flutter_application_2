@@ -29,21 +29,21 @@ class TaskData extends ChangeNotifier {
     loadFromFirebase();
   }
 
-  void addTask(Task newTask) async {
+  void addTask(Task newTask) async { //Lisää tehtävä
     tasks.add(newTask);
     fbHelper.saveTask(newTask);
     notifyListeners(); // Notify listeners about the change
   }
 
-  void editTask(int index, Task editedTask) {
+  void editTask(int index, Task editedTask) { //Muokkaa tehtävää
     tasks[index] = editedTask;
     fbHelper.editTask(editedTask);
     notifyListeners();
   }
 
   void deleteTask(Task task) {
-    fbHelper.deleteTask(task); // This deletes the task from Firebase
     tasks.remove(task); // This removes the task from the local list
+    fbHelper.deleteTask(task); // This deletes the task from Firebase
     notifyListeners(); // This notifies the listeners about the change
   }
 

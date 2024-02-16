@@ -10,7 +10,10 @@ class FirebaseHelper {
           .uid); //Tietokantareferenssi (tasks) ja käyttäjän uid (FirebaseAuth.instance.currentUser!.uid
 
   void saveTask(Task task) {
-    _taskRef.push().set(task.toJson()); //Tallennetaan Task Jsonina
+    var itemref = _taskRef.push();
+    task.firebaseid = itemref.key;
+
+    itemref.set(task.toJson()); //Tallennetaan Task Jsonina
   }
 
   void deleteTask(Task task) {
