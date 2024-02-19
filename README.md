@@ -37,7 +37,7 @@ dependencies:
 
 Mitä ulkoisia palveluita se käyttää: <br />
 Firebase tietokantaa <br />
-Hakee syke kuntosalin aukioloajat <br />
+Hakee syke kuntosalin aukioloajat (ei toiminut )<br />
 
 Mitä puhelimen ominaisuuksia se käyttää <br />
 Toimii puhelimen käyttöliittymässä. Ei muita ominaisuuksia esim kamera
